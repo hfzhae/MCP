@@ -1,0 +1,30 @@
+{
+  "name": "@zydsoftmcp/mcp-server-zydsoft",
+  "version": "1.0.0",
+  "description": "MCP server for using the Zydsoft API",
+  "license": "MIT",
+  "author": "zz",
+  "homepage": "https://c.zydsoft.cn/open/v2/docs/",
+  "bugs": "",
+  "type": "module",
+  "bin": {
+    "mcp-server-zydsoft": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.1",
+    "@types/node-fetch": "^2.6.13",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "shx": "^0.4.0",
+    "typescript": "^5.9.2"
+  }
+}
