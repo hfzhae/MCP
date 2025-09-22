@@ -7,7 +7,10 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js"
 import { diseaseGuide, getApiKey, getPartnerId } from './functions.js'
-import { DISEASE_GUIDE_TOOL } from './tools.js'
+import {
+  DISEASE_GUIDE_TOOL,
+  DISEASE_LIST_TOOL
+} from './tools.js'
 // 使用 import() 动态导入 JSON 文件
 const packageJson = await import('./package.json', {
   assert: { type: 'json' }
@@ -18,7 +21,8 @@ const ZYDSOFT_API_KEY = getApiKey()
 const ZYDSOFT_PARTNERID = getPartnerId()
 
 const MAPS_TOOLS = [
-  DISEASE_GUIDE_TOOL
+  DISEASE_GUIDE_TOOL,
+  DISEASE_LIST_TOOL
 ] as const
 
 const server = new Server(

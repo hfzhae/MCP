@@ -14,3 +14,15 @@ export const DISEASE_GUIDE_TOOL: Tool = {
     required: ["find"]
   }
 }
+
+export const DISEASE_LIST_TOOL: Tool = {
+  name: "diseaseList",
+  description: "病症和科目列表",
+  inputSchema: {
+    type: "object",
+    properties: {
+      listId: { type: "string", maxLength: 24, description: "科目ID" }
+    },
+    required: []
+  }
+}
