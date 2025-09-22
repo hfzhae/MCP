@@ -1,6 +1,6 @@
 # Zydsoft MCP Server
 
-MCP Server for the Zydsoft API.
+MCP Server for the [Zydsoft API](https://c.zydsoft.cn/open/v2/docs/).
 
 ## Tools
 
@@ -21,10 +21,6 @@ MCP Server for the Zydsoft API.
 
 ### API Key
 Get a Zydsoft API key by following the instructions [here](https://c.zydsoft.cn/partner/#/studio).
-
-### Usage with Claude Desktop
-
-Add the following to your `claude_desktop_config.json`:
 
 ### NPX
 
