@@ -18,6 +18,14 @@ MCP Server for the Zydsoft API
      - `diseaseSecond` (array)
      - `diseaseThird` (array)
      - `symptom` (array)
+  2. `diseaseList`
+    - 病症和科目列表
+    - API文档参考：[https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868](https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868).
+    - Input: 
+     - `find` (string): 科目ID 
+    - Returns: 
+     - `_id` (string): id
+     - `title` (string): 标题
 
 ## Setup
 
