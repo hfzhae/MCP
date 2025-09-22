@@ -6,15 +6,16 @@ MCP Server for the Zydsoft API.
 
 1. `diseaseGuide`
    - 病症导诊
+   - [API文档URL](https://c.zydsoft.cn/open/v2/docs/?page=75c575c75bfc8bca).
    - Input: 
      - `find` (string): 搜索文字，多个查询字符用英文逗号分隔，例如：头痛,发热,恶寒；也支持自然语言检索，但关键症候建议使用分隔符（支持的分隔符：中英文逗号、空格、顿号、换行符、中英文分号、句号）例如：我今天有点头痛，还伴有发热，恶寒、咳嗽
+     - `size` (number): 确定返回的症候数组、三个批次病症关联病症的数量，默认10
    - Returns: 
-     - `location`: { lat: number, lng: number } 
-     - `precise`: number 
-     - `confidence`: number 
-     - `comprehension`: number 
-     - `level`: string 
-
+     - `find` (array): 搜索文字数组
+     - `diseaseFirst` (array)
+     - `diseaseSecond` (array)
+     - `diseaseThird` (array)
+     - `symptom` (array)
 
 ## Setup
 
