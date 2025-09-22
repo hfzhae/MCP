@@ -1,57 +1,49 @@
 #!/usr/bin/env node
 
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { Server } from "@modelcontextprotocol/sdk/server/index.js"
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
-  Tool,
-} from "@modelcontextprotocol/sdk/types.js";
-import fetch from "node-fetch";
-import { diseaseGuide, getApiKey } from './functions.js'
+} from "@modelcontextprotocol/sdk/types.js"
+import { diseaseGuide, getApiKey, getPartnerId } from './functions.js'
+import { DISEASE_GUIDE_TOOL } from './tools.js'
+// 使用 import() 动态导入 JSON 文件
+const packageJson = await import('./package.json', {
+  assert: { type: 'json' }
+})
+const { name, version } = packageJson.default
 
-const ZYDSOFT_MAP_API_KEY = getApiKey();
-
-const DISEASE_GUIDE_TOOL: Tool = {
-  name: "diseaseGuide",
-  description: "病症导诊",
-  inputSchema: {
-    type: "object",
-    properties: {
-      find: { type: "string", minLength: 1, maxLength: 200, description: "搜索文字，多个查询字符用英文逗号分隔，例如：头痛,发热,恶寒；也支持自然语言检索，但关键症候建议使用分隔符（支持的分隔符：中英文逗号、空格、顿号、换行符、中英文分号、句号）例如：我今天有点头痛，还伴有发热，恶寒、咳嗽" },
-      size: { type: "number", default: 10, description: "确定返回的症候数组、三个批次病症关联病症的数量，默认10" }
-    },
-    required: ["find"]
-  }
-};
+const ZYDSOFT_API_KEY = getApiKey()
+const ZYDSOFT_PARTNERID = getPartnerId()
 
 const MAPS_TOOLS = [
   DISEASE_GUIDE_TOOL
-] as const;
+] as const
 
 const server = new Server(
   {
-    name: "mcp-server/zydsoft-map",
-    version: "1.0.0",
+    name,
+    version,
   },
   {
     capabilities: {
       tools: {},
     },
   },
-);
+)
 
 // Set up request handlers
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: MAPS_TOOLS,
-}));
+}))
 
 server.setRequestHandler(CallToolRequestSchema, async (request): Promise<any> => {
   try {
     switch (request.params.name) {
       case "diseaseGuide": {
-        const { find } = request.params.arguments as { find: string };
-        return await diseaseGuide({ find });
+        const { find, size } = request.params.arguments as { find: string, size: number }
+        return await diseaseGuide({ find, size })
       }
 
       default:
@@ -61,7 +53,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request): Promise<any> =>
             text: `Unknown tool: ${request.params.name}`
           }],
           isError: true
-        };
+        }
     }
   } catch (error) {
     return {
@@ -70,17 +62,17 @@ server.setRequestHandler(CallToolRequestSchema, async (request): Promise<any> =>
         text: `Error: ${error instanceof Error ? error.message : String(error)}`
       }],
       isError: true
-    };
+    }
   }
-});
+})
 
 async function runServer() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("Zydsoft MCP Server running on stdio");
+  const transport = new StdioServerTransport()
+  await server.connect(transport)
+  console.error("Zydsoft MCP Server running on stdio")
 }
 
 runServer().catch((error) => {
-  console.error("Fatal error running server:", error);
-  process.exit(1);
-});
+  console.error("Fatal error running server:", error)
+  process.exit(1)
+})

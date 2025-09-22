@@ -29,13 +29,14 @@ Get a Zydsoft API key by following the instructions [here](https://c.zydsoft.cn/
 ```json
 {
   "mcpServers": {
-    "zyd-server-map": {
+    "zyd-mcp-server": {
       "command": "npx",
       "args": [
         "-y",
         "zyd-mcp-server"
       ],
       "env": {
+        "ZYDSOFT_PARTNERID": "<YOUE_PARTNERID>",
         "ZYDSOFT_API_KEY": "<YOUR_API_KEY>"
       }
     }
