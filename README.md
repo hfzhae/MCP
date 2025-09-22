@@ -37,7 +37,7 @@ Add the following to your `claude_desktop_config.json`:
         "zyd-mcp-server"
       ],
       "env": {
-        "ZYDSOFT_API_KEY": "123"
+        "ZYDSOFT_API_KEY": "<YOUR_API_KEY>"
       }
     }
   }
