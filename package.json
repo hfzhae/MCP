@@ -1,5 +1,5 @@
 {
-  "name": "@zydsoftmcp/mcp-server-zydsoft",
+  "name": "zyd-mcp-server",
   "version": "1.0.0",
   "description": "MCP server for using the Zydsoft API",
   "license": "MIT",
