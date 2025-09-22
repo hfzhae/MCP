@@ -6,7 +6,10 @@ import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js"
-import { diseaseGuide, getApiKey, getPartnerId } from './functions.js'
+import {
+  diseaseGuide,
+  diseaseList
+} from './functions.js'
 import {
   DISEASE_GUIDE_TOOL,
   DISEASE_LIST_TOOL
@@ -16,9 +19,6 @@ const packageJson = await import('./package.json', {
   assert: { type: 'json' }
 })
 const { name, version } = packageJson.default
-
-const ZYDSOFT_API_KEY = getApiKey()
-const ZYDSOFT_PARTNERID = getPartnerId()
 
 const MAPS_TOOLS = [
   DISEASE_GUIDE_TOOL,
@@ -48,6 +48,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request): Promise<any> =>
       case "diseaseGuide": {
         const { find, size } = request.params.arguments as { find: string, size: number }
         return await diseaseGuide({ find, size })
+      }
+      
+      case "diseaseList": {
+        const { listId } = request.params.arguments as { listId: string }
+        return await diseaseList({ listId })
       }
 
       default:
