@@ -152,7 +152,7 @@ const KNOWLEDGEBASE_LOAD_TOOL: Tool = {
 
 const MEDICALRECORD_LIST_TOOL: Tool = {
   name: "medicalrecordList",
-  description: "知识库获取",
+  description: "病案列表",
   inputSchema: {
     type: "object",
     properties: {
@@ -180,6 +180,6 @@ export const MAPS_TOOLS = [
   KNOWLEDGEBASE_TYPE_LIST_TOOL,
   KNOWLEDGEBASE_LIST_TOOL,
   KNOWLEDGEBASE_LOAD_TOOL,
-  MEDICALRECORD_LOAD_TOOL,
   MEDICALRECORD_LIST_TOOL,
+  MEDICALRECORD_LOAD_TOOL,
 ] as const

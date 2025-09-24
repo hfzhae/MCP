@@ -12,6 +12,27 @@ MCP Server for the Zydsoft API
 2. `diseaseList`
    - 病症和科目列表
    - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868](https://c.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868).
+3. `diseaseLoad`
+   - 病症获取
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c575c783b753d6](https://c.zydsoft.cn/open/v2/docs/?page=75c575c783b753d6).
+4. `quickDiagnosis`
+   - 快捷辨证
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=5feb63778fa88bc1](https://c.zydsoft.cn/open/v2/docs/?page=5feb63778fa88bc1).
+5. `knowledgebaseTypeList`
+   - 知识库类型列表
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=77e58bc65e937c7b578b52178868](https://c.zydsoft.cn/open/v2/docs/?page=77e58bc65e937c7b578b52178868).
+6. `knowledgebaseList`
+   - 知识库列表
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=77e58bc65e9352178868](https://c.zydsoft.cn/open/v2/docs/?page=77e58bc65e9352178868).
+7. `knowledgebaseLoad`
+   - 知识库获取
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=77e58bc65e9383b753d6](https://c.zydsoft.cn/open/v2/docs/?page=77e58bc65e9383b753d6).
+8. `medicalrecordList`
+   - 病案列表
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c5684852178868](https://c.zydsoft.cn/open/v2/docs/?page=75c5684852178868).
+9. `medicalrecordLoad`
+   - 病案获取
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c5684883b753d6](https://c.zydsoft.cn/open/v2/docs/?page=75c5684883b753d6).
 
 ## Setup
 
