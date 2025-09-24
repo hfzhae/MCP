@@ -28,6 +28,10 @@ function getApiBaseUrl(): string {
   return baseUrl
 }
 
+const partnerId = getPartnerId()
+const apiKey = getApiKey()
+const baseUrl = getApiBaseUrl()
+
 function timestamp() { return Math.floor(Date.now() / 1000) }
 /**
  * 签名方法 SHA256 / MD5
@@ -107,8 +111,8 @@ async function getTokenNow() {
       "Content-Type": "application/json"
     }
   })
-  assert(res.ok, `Failed to get token: ${res.status} ${res.statusText}`)
   const data = await res.json()
+  assert(res.ok, `Failed to get token: ${res.status} ${data.message || 'Unknown error'}`)
   assert(data.token, `Failed to get token: ${data.message || 'Unknown error'}`)
   const newToken: Token = {
     partnerId,
@@ -119,7 +123,3 @@ async function getTokenNow() {
   fs.writeFileSync('./token.json', JSON.stringify(newToken, null, 2))
   return newToken
 }
-
-const partnerId = getPartnerId()
-const apiKey = getApiKey()
-const baseUrl = getApiBaseUrl()
