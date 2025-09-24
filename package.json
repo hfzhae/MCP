@@ -26,7 +26,6 @@
     "build": "tsc && shx chmod +x dist/*.js",
     "prepare": "npm run build",
     "watch": "tsc --watch",
-    "serve": "node index.js",
     "dev": "tsx --watch index.ts",
     "debug": "npx @modelcontextprotocol/inspector"
   },
