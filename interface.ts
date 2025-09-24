@@ -13,3 +13,15 @@ export interface Token {
   expiresIn: number
   createdAt: string
 }
+
+export interface DiseaseLoad {
+  diseaseId: string
+}
+
+export interface MedicalrecordLoad {
+  medicalrecordId: string
+}
+
+export interface KnowledgebaseLoad {
+  knowledgeBaseId: string
+}

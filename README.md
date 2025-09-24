@@ -11,7 +11,7 @@ MCP Server for the Zydsoft API
    - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c575c75bfc8bca](https://c.zydsoft.cn/open/v2/docs/?page=75c575c75bfc8bca).
 2. `diseaseList`
    - 病症和科目列表
-   - API文档：[https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868](https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868).
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868](https://c.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868).
 
 ## Setup
 
