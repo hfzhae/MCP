@@ -1,8 +1,7 @@
-import {
-  Tool,
-} from "@modelcontextprotocol/sdk/types.js";
+import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
-export const DISEASE_GUIDE_TOOL: Tool = {
+
+const DISEASE_GUIDE_TOOL: Tool = {
   name: "diseaseGuide",
   description: "病症导诊",
   inputSchema: {
@@ -15,7 +14,7 @@ export const DISEASE_GUIDE_TOOL: Tool = {
   }
 }
 
-export const DISEASE_LIST_TOOL: Tool = {
+const DISEASE_LIST_TOOL: Tool = {
   name: "diseaseList",
   description: "病症和科目列表",
   inputSchema: {
@@ -26,3 +25,9 @@ export const DISEASE_LIST_TOOL: Tool = {
     required: []
   }
 }
+
+// Define the tools supported by this server
+export const MAPS_TOOLS = [
+  DISEASE_GUIDE_TOOL,
+  DISEASE_LIST_TOOL
+] as const

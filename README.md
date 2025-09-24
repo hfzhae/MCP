@@ -7,16 +7,18 @@ MCP Server for the Zydsoft API
 ## Tools
 
 1. `diseaseGuide`
-    - 病症导诊
-    - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c575c75bfc8bca](https://c.zydsoft.cn/open/v2/docs/?page=75c575c75bfc8bca).
+   - 病症导诊
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c575c75bfc8bca](https://c.zydsoft.cn/open/v2/docs/?page=75c575c75bfc8bca).
 2. `diseaseList`
-    - 病症和科目列表
-    - API文档：[https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868](https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868).
+   - 病症和科目列表
+   - API文档：[https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868](https://t.zydsoft.cn/open/v2/docs/?page=75c575c7548c79d176ee52178868).
 
 ## Setup
 
-### API Key
-Get a Zydsoft API key by following the instructions [here](https://c.zydsoft.cn/partner/#/studio).
+### PartnerId and API Key
+
+Get a Zydsoft PartnerId and API key by following the instructions
+[here](https://c.zydsoft.cn/partner/#/studio).
 
 ### NPX
 
@@ -30,8 +32,9 @@ Get a Zydsoft API key by following the instructions [here](https://c.zydsoft.cn/
         "zyd-mcp-server"
       ],
       "env": {
-        "ZYDSOFT_PARTNERID": "<YOUE_PARTNERID>",
-        "ZYDSOFT_API_KEY": "<YOUR_API_KEY>"
+        "ZYDSOFT_PARTNERID": "<YOUR_PARTNERID>",
+        "ZYDSOFT_API_KEY": "<YOUR_API_KEY>",
+        "ZYDSOFT_API_BASEURL": "https://c.zydsoft.cn/open/v2/api"
       }
     }
   }
@@ -40,4 +43,7 @@ Get a Zydsoft API key by following the instructions [here](https://c.zydsoft.cn/
 
 ## License
 
-This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
+This MCP server is licensed under the MIT License. This means you are free to
+use, modify, and distribute the software, subject to the terms and conditions of
+the MIT License. For more details, please see the LICENSE file in the project
+repository.

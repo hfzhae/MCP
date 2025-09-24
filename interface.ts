@@ -6,3 +6,10 @@ export interface DiseaseGuide {
 export interface DiseaseList {
   listId: string
 }
+
+export interface Token {
+  partnerId: string
+  token: string
+  expiresIn: number
+  createdAt: string
+}
