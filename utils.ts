@@ -1,33 +1,30 @@
 import fs from 'fs'
-import { Token } from "./interface.js"
 import dotenv from 'dotenv'
 import crypto from 'crypto'
+import assert from "assert"
 dotenv.config({ path: './.env' })
 
+interface Token {
+  partnerId: string
+  token: string
+  expiresIn: number
+  createdAt: string
+}
 function getApiKey(): string {
   const apiKey = process.env.ZYDSOFT_API_KEY || ""
-  if (!apiKey) {
-    console.error("ZYDSOFT_API_KEY environment variable is not set")
-    process.exit(1)
-  }
+  assert(apiKey, "ZYDSOFT_API_KEY environment variable is not set")
   return apiKey
 }
 
 function getPartnerId(): string {
   const partnerId = process.env.ZYDSOFT_PARTNERID || ""
-  if (!partnerId) {
-    console.error("ZYDSOFT_PARTNERID environment variable is not set")
-    process.exit(1)
-  }
+  assert(partnerId, "ZYDSOFT_PARTNERID environment variable is not set")
   return partnerId
 }
 
 function getApiBaseUrl(): string {
   const baseUrl = process.env.ZYDSOFT_API_BASEURL || "https://c.zydsoft.cn/open/v2/api"
-  if (!baseUrl) {
-    console.error("ZYDSOFT_API_BASEURL environment variable is not set")
-    process.exit(1)
-  }
+  assert(baseUrl.startsWith("http://") || baseUrl.startsWith("https://"), "ZYDSOFT_API_BASEURL must start with http:// or https://")
   return baseUrl
 }
 
@@ -38,14 +35,9 @@ function timestamp() { return Math.floor(Date.now() / 1000) }
  * @returns {String}
  */
 function sign({ params, secret, method = "SHA256" } = {} as { params: any, secret: string, method?: "SHA256" | "MD5" }) {
-  if (!params || Object.keys(params).length === 0) {
-    console.error("Params is required for signing")
-    process.exit(1)
-  }
-  if (!secret) {
-    console.error("Secret is required for signing")
-    process.exit(1)
-  }
+  assert(method === "SHA256" || method === "MD5", "Method must be 'SHA256' or 'MD5'")
+  assert(params && typeof params === "object", "Params must be an object")
+  assert(secret && typeof secret === "string", "Secret must be a string")
   let arr = []
   Object.keys(params).sort().forEach(key => {
     if (params[key] !== '' && params[key] !== undefined && params[key] !== null) {
@@ -64,21 +56,13 @@ function sign({ params, secret, method = "SHA256" } = {} as { params: any, secre
   }
   return strSign
 }
-const partnerId = getPartnerId()
-const apiKey = getApiKey()
-const baseUrl = getApiBaseUrl()
 
 export async function callZydsoftApi({ module = "", params = {}, data = {}, method = "get" }: { module: string, params?: any, data?: any, method?: "get" | "post" }) {
-  if (!module) {
-    console.error("Module is required")
-    process.exit(1)
-  }
+  assert(method.toLowerCase() === "get" || method.toLowerCase() === "post", "Method must be 'get' or 'post'")
+  assert(params && typeof params === "object", "Params must be an object")
+  assert(module, "Module must be a string")
   const token = await getToken()
-  if (!token) {
-    console.error("Failed to get token")
-    process.exit(1)
-  }
-
+  assert(token, "Failed to get token")
   if (data && (data.length > 0 || Object.keys(data).length > 0)) {
     params.post_params = JSON.stringify(data)
   }
@@ -87,6 +71,7 @@ export async function callZydsoftApi({ module = "", params = {}, data = {}, meth
   delete params.post_params
 
   let res
+  data = method.toLowerCase() === "get" ? null : JSON.stringify(data)
   try {
     res = await fetch(`${baseUrl}/${module}?${new URLSearchParams(params)}`, {
       method,
@@ -94,14 +79,15 @@ export async function callZydsoftApi({ module = "", params = {}, data = {}, meth
         "Content-Type": "application/json",
         'Authorization': `Bearer ${token.token}`
       },
-      body: method.toLowerCase() === "get" ? null : JSON.stringify(data)
-
+      body: data
     })
   } catch (error) {
-    console.error("Error calling Zydsoft API:", error)
-    process.exit(1)
+    assert(false, "Failed to connect to Zydsoft API")
   }
-  return res.json()
+  const result = await res.json()
+  assert(result, "No response from Zydsoft API")
+  assert(res.status === 200, `Zydsoft API error: ${result.message || 'Unknown error'}`)
+  return result
 }
 
 async function getToken() {
@@ -121,16 +107,9 @@ async function getTokenNow() {
       "Content-Type": "application/json"
     }
   })
-  if (!res.ok) {
-    console.error(`Failed to get token: ${res.status} ${res.statusText}`)
-    process.exit(1)
-  }
-
+  assert(res.ok, `Failed to get token: ${res.status} ${res.statusText}`)
   const data = await res.json()
-  if (!data.token) {
-    console.error(`Failed to get token: ${data.message || 'Unknown error'}`)
-    process.exit(1)
-  }
+  assert(data.token, `Failed to get token: ${data.message || 'Unknown error'}`)
   const newToken: Token = {
     partnerId,
     token: data.token,
@@ -140,3 +119,7 @@ async function getTokenNow() {
   fs.writeFileSync('./token.json', JSON.stringify(newToken, null, 2))
   return newToken
 }
+
+const partnerId = getPartnerId()
+const apiKey = getApiKey()
+const baseUrl = getApiBaseUrl()

@@ -33,6 +33,21 @@ MCP Server for the Zydsoft API
 9. `medicalrecordLoad`
    - 病案获取
    - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c5684883b753d6](https://c.zydsoft.cn/open/v2/docs/?page=75c5684883b753d6).
+10. `methodOfPreparation`
+   - 炮制方法
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=70ae523665b96cd5](https://c.zydsoft.cn/open/v2/docs/?page=70ae523665b96cd5).
+11. `followupadd`
+   - 病案创建复诊
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c56848521b5efa590d8bca](https://c.zydsoft.cn/open/v2/docs/?page=75c56848521b5efa590d8bca).
+12. `medicalrecordConfirm`
+   - 病案确认
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c56848786e8ba4](https://c.zydsoft.cn/open/v2/docs/?page=75c56848786e8ba4).
+13. `assessment`
+   - 整体疗效评估
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=65744f53759765488bc44f30](https://c.zydsoft.cn/open/v2/docs/?page=65744f53759765488bc44f30).
+14. `symptomAssessment`
+   - 症候疗效评估
+   - API文档：[https://c.zydsoft.cn/open/v2/docs/?page=75c75019759765488bc44f30](https://c.zydsoft.cn/open/v2/docs/?page=75c75019759765488bc44f30).
 
 ## Setup
 

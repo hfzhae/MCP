@@ -5,6 +5,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js"
 import { callTools } from './functions.js'
 import { MAPS_TOOLS } from './tools.js'
+import assert from "assert"
 
 // 使用 import() 动态导入 JSON 文件
 const packageJson = await import('./package.json', {
@@ -36,10 +37,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function runServer() {
   const transport = new StdioServerTransport()
   await server.connect(transport)
-  console.error("Zydsoft MCP Server running on stdio")
+  console.log("Zydsoft MCP Server running on stdio")
 }
 
 runServer().catch((error) => {
-  console.error("Fatal error running server:", error)
-  process.exit(1)
+  assert(false, `Fatal error running server: ${error.message || error}`)
 })
