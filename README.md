@@ -34,7 +34,8 @@ Users can access the system through the AI SaaS platform or the no-code PaaS pla
 - How accurate is 辨证云?
 > The system has been clinically validated with a compliance rate of over 90% compared to expert diagnoses.
 
-![Snipaste_2025-09-25_09-46-02](https://github.com/user-attachments/assets/e998585c-999e-475f-b53e-b737e1898fd5)
+![Snipaste_2025-09-25_12-41-35](https://github.com/user-attachments/assets/4b335bdd-c8e0-408c-bc72-b14d6ed63cdb)
+
 
 ## MCP Server for the zydsoft API
 
