@@ -1,6 +1,6 @@
 {
   "name": "zyd-mcp-server",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "MCP server for using the zydsoft API",
   "license": "MIT",
   "author": "zz",
