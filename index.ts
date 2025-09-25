@@ -4,7 +4,7 @@ import { Server } from "@modelcontextprotocol/sdk/server/index.js"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js"
 import { callTools } from './functions.js'
-import { MAPS_TOOLS } from './tools.js'
+import { ZYD_TOOLS } from './tools.js'
 import assert from "assert"
 
 // 使用 import() 动态导入 JSON 文件
@@ -27,7 +27,7 @@ const server = new Server(
 
 // Set up request handlers
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
-  tools: MAPS_TOOLS,
+  tools: ZYD_TOOLS,
 }))
 
 // Handle tool calls
