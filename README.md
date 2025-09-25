@@ -94,6 +94,7 @@ Get zydsoft's PartnerId and API key, and set up the IP address whitelist accordi
    }
 }
 ```
+![Snipaste_2025-09-25_09-46-02](https://github.com/user-attachments/assets/e998585c-999e-475f-b53e-b737e1898fd5)
 
 ## License
 
