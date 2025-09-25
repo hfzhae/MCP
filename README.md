@@ -1,4 +1,4 @@
-# Zydsoft MCP Server
+# zydsoft MCP Server
 
 ## what is 辨证云?
 
@@ -32,7 +32,7 @@ Users can access the system through the AI SaaS platform or the no-code PaaS pla
 - How accurate is 辨证云?
 > The system has been clinically validated with a compliance rate of over 90% compared to expert diagnoses.
 
-## MCP Server for the Zydsoft API
+## MCP Server for the zydsoft API
 
 [辨证云®开放接口文档](https://c.zydsoft.cn/open/v2/docs/).
 
@@ -71,7 +71,7 @@ Users can access the system through the AI SaaS platform or the no-code PaaS pla
 
 ### PartnerId and API Key and IP address whitelist
 
-[Get Zydsoft's PartnerId and API key, and set up the IP address whitelist according to the instructions.](https://c.zydsoft.cn/partner/#/studio).
+[Get zydsoft's PartnerId and API key, and set up the IP address whitelist according to the instructions.](https://c.zydsoft.cn/partner/#/studio).
 
 ### NPX
 
