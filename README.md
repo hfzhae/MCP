@@ -1,6 +1,38 @@
 # Zydsoft MCP Server
 
-MCP Server for the Zydsoft API
+## what is 辨证云?
+
+辨证云 is an AI-based intelligent auxiliary system for traditional Chinese medicine (TCM) diagnosis, combining artificial neural networks and expert knowledge graphs. It simulates the entire process of TCM diagnosis and treatment, replicating the diagnostic thinking of TCM experts and providing various prescription combinations including traditional formulas, Chinese patent medicines, acupuncture, and dietary therapy.
+
+## how to use 辨证云?
+
+Users can access the system through the AI SaaS platform or the no-code PaaS platform. They can input their main symptoms and receive tailored treatment recommendations based on the established TCM diagnostic reasoning model.
+
+## key features of 辨证云?
+
+- AI-driven TCM diagnosis and treatment recommendations
+- Integration of expert knowledge and neural network models
+- Support for over 400 diseases and TCM treatment protocols
+- Unique dual-diagnosis system based on the "Shang Han Lun" theory
+
+## use cases of 辨证云?
+
+- Assisting practitioners in diagnosing complex TCM cases
+- Providing patients with personalized treatment plans
+- Supporting research in TCM through clinical data analysis
+
+## FAQ from 辨证云?
+
+- Can 辨证云 assist with all TCM conditions?
+> Yes! 辨证云 covers a wide range of TCM conditions and treatment options.
+
+- Is 辨证云 free to use?
+> Access to the platform may vary; please check the official documentation for details.
+
+- How accurate is 辨证云?
+> The system has been clinically validated with a compliance rate of over 90% compared to expert diagnoses.
+
+## MCP Server for the Zydsoft API
 
 [辨证云®开放接口文档](https://c.zydsoft.cn/open/v2/docs/).
 
